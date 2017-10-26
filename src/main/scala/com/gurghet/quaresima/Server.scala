@@ -9,7 +9,7 @@ import scala.concurrent.ExecutionContext
 object BlazeExample extends StreamApp {
   override def stream(args: List[String]): Stream[Task, Nothing] =
     BlazeBuilder
-      .bindHttp(8080, "::")
+      .bindHttp(8080, "0")
       .mountService(HelloWorld.service)
       .serve
 }
