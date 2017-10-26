@@ -1,3 +1,5 @@
+enablePlugins(JavaAppPackaging)
+dockerUsername := Some("gurghet")
 import ReleaseTransformations._
 
 releaseProcess := Seq[ReleaseStep](
