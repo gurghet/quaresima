@@ -12,3 +12,5 @@ libraryDependencies ++= Seq(
  "org.http4s"     %% "http4s-dsl"          % Http4sVersion,
  "ch.qos.logback" %  "logback-classic"     % LogbackVersion
 )
+
+resolvers += Resolver.bintrayIvyRepo("sbt", "sbt-plugin-releases")
