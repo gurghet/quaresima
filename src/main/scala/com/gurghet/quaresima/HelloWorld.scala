@@ -10,7 +10,7 @@ import org.http4s.MediaType._
 object HelloWorld {
   val service = HttpService {
     case GET -> Root / "hello" / name =>
-      Ok("""<h2 style="font-size:200">Ciao Ania3!</h2>""").withContentType(Some(`text/html`))
+      Ok("""<h2 style="font-size:200">Ciao Ania4!</h2>""").withContentType(Some(`text/html`))
       //Ok(Json.obj("message" -> Json.fromString(s"Hello, ${name}")))
   }
 }
