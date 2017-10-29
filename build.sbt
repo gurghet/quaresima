@@ -22,7 +22,5 @@ addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.fu
 
 resolvers += Resolver.bintrayIvyRepo("sbt", "sbt-plugin-releases")
 
-cancelable in Global := true
-
 flywayUrl in Test := "jdbc:h2:tcp://localhost/./test"
 flywayUrl := "jdbc:h2:tcp://localhost/./test"

@@ -14,7 +14,7 @@ import org.http4s.dsl.Http4sDsl
 import doobie.implicits._
 
 object Routes extends Http4sDsl[IO] {
-  implicit val xa = Transactor.fromDriverManager[IO]("org.h2.Driver", "jdbc:h2:tcp://localhost/./test")
+  implicit val xa = Transactor.fromDriverManager[IO]("org.h2.Driver", "jdbc:h2:tcp://138.68.177.123/./test")
   val service = HttpService[IO] {
     case GET -> Root / "days" / LocalDateVar(firstDay) / LocalDateVar(lastDay) =>
       if (lastDay isBefore firstDay) {
