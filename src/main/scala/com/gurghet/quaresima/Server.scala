@@ -1,15 +1,15 @@
 package com.gurghet.quaresima
 
-import fs2.{Task, Stream}
-import org.http4s.util.StreamApp
-import org.http4s.server.Server
+import cats.effect._
+import org.http4s._
+import org.http4s.dsl.Http4sDsl
 import org.http4s.server.blaze.BlazeBuilder
-import scala.concurrent.ExecutionContext
+import org.http4s.util.StreamApp
 
-object BlazeExample extends StreamApp {
-  override def stream(args: List[String]): Stream[Task, Nothing] =
-    BlazeBuilder
+object Server extends StreamApp[IO] with Http4sDsl[IO] {
+  override def stream(args: List[String], requestShutdown: IO[Unit]) =
+    BlazeBuilder[IO]
       .bindHttp(8080, "0.0.0.0")
-      .mountService(HelloWorld.service)
+      .mountService(Routes.service)
       .serve
 }
