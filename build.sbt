@@ -22,5 +22,6 @@ addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.fu
 
 resolvers += Resolver.bintrayIvyRepo("sbt", "sbt-plugin-releases")
 
-flywayUrl in Test := "jdbc:h2:tcp://localhost/./test"
-flywayUrl := "jdbc:h2:tcp://localhost/./test"
+enablePlugins(FlywayPlugin)
+flywayUrl in Test := "jdbc:h2:tcp://localhost/test"
+flywayUrl := "jdbc:h2:tcp://localhost:1521/test"

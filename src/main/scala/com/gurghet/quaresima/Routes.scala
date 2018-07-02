@@ -19,7 +19,7 @@ import org.http4s.implicits._
 import org.http4s.server.middleware._
 
 object Routes extends Http4sDsl[IO] {
-  implicit val xa = Transactor.fromDriverManager[IO]("org.h2.Driver", "jdbc:h2:tcp://h2-quaresima/./test")
+  implicit val xa = Transactor.fromDriverManager[IO]("org.h2.Driver", "jdbc:h2:tcp://h2-quaresima:1521/test")
 
   val service = HttpService[IO] {
     case GET -> Root / "days" / LocalDateVar(firstDay) / LocalDateVar(lastDay) =>
